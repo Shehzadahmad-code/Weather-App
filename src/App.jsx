@@ -9,7 +9,7 @@ export default function App() {
 
   const fetchWeatherData = async (latitude, longitude, city = '') => {
     try {
-      const apikey = "a446d9afa2b32869ab3ce22756c228d3";
+      const apikey = process.env.REACT_APP_WEATHER_API_KEY;
       const url = city
         ? `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}`
         : `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apikey}`;
