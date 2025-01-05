@@ -6,10 +6,11 @@ export const Weather = createContext();
 export default function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [location, setLocation] = useState('');
-
+  console.log("API Key:", import.meta.env.VITE_WEATHER_API_KEY);
   const fetchWeatherData = async (latitude, longitude, city = '') => {
     try {
-      const apikey = process.env.REACT_APP_WEATHER_API_KEY;
+
+      const apikey = import.meta.env.VITE_WEATHER_API_KEY;
       const url = city
         ? `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}`
         : `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apikey}`;
